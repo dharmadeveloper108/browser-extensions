@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Duplicated Tabs Destroyer",
+    "version": "1.0",
+    "description": "Searches for keywords in open tabs from current Firefox session.",
+
+    "permissions": [
+      "find",
+      "tabs",
+      "activeTab"
+    ],
+    
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "Duplicated Tabs Destroyer",
+    "default_popup": "kaboom.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "57.0a1"
+    }
+  },
+    "icons": {
+      "48": "icons/kaboom.png"
+    }
+  }
