@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Duplicated Tabs Destroyer",
     "version": "1.0",
-    "description": "Searches for keywords in open tabs from current Firefox session.",
+    "description": "Get rid of any duplicated tabs you have open in your browser.",
 
     "permissions": [
       "find",

@@ -37,7 +37,6 @@ async function destroy(query) {
   button.addEventListener("click", function(e) {
     e.preventDefault();  
     destroy();
-    var explosion = setTimeout(Init(), 15);
-    clearTimeout(explosion);
+    setTimeout(Init(), 15);
     document.getElementById("btn").style.zIndex = -1;
   });

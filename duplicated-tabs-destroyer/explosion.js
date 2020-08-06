@@ -83,7 +83,7 @@ function Explosion() {
   }
 
   this.update = function() {
-    for (var i = 0; i < this.particles.length; i++) {
+    for (var i = 0; i < 30; i++) {
       this.particles[i].update();
       if (this.particles[i].r < .5) {
         this.particles.splice(i, 1)
@@ -93,7 +93,7 @@ function Explosion() {
   }
 
   this.draw = function() {
-    for (var i = 0; i < this.particles.length; i++) {
+    for (var i = 0; i < 20; i++) {
       this.particles[i].draw();
     }
   }
@@ -103,7 +103,7 @@ function Draw() {
   requestId = window.requestAnimationFrame(Draw);
   ctx.clearRect(0, 0, cw, ch);
   ctx.globalCompositeOperation = "lighter";
-  if (Math.random() < .1) {
+  if (Math.random() < .4) {
     explosions.push(new Explosion());
   }
 
@@ -120,10 +120,6 @@ var Init = function() {
     window.cancelAnimationFrame(requestId);
     requestId = null;
   }
-  cw = canvas.width = window.innerWidth,
-    cx = cw / 2;
-  ch = canvas.height = window.innerHeight,
-    cy = ch / 2;
 
   Draw();
 }
