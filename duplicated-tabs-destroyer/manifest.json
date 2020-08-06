@@ -3,6 +3,7 @@
     "name": "Duplicated Tabs Destroyer",
     "version": "1.0",
     "description": "Get rid of any duplicated tabs you have open in your browser.",
+    "homepage_url": "https://github.com/dharmadeveloper108/firefox-extensions/tree/master/duplicated-tabs-destroyer",
 
     "permissions": [
       "find",
@@ -14,11 +15,6 @@
     "browser_style": true,
     "default_title": "Duplicated Tabs Destroyer",
     "default_popup": "kaboom.html"
-  },
-  "browser_specific_settings": {
-    "gecko": {
-      "strict_min_version": "57.0a1"
-    }
   },
     "icons": {
       "48": "icons/kaboom.png"
