@@ -1,34 +1,29 @@
 async function destroy(query) {
   
     let tabs = await browser.tabs.query({});
-    let tabsArray = []
+    let tabsUnreduced = [];
+    tabsUnreduced = tabs;
 
-    for(let tab of tabs) {
-        tabsArray.push(tab)
-    }
-
-    const openTabs = tabs.reduce((x, y) => {
-        x[y.url] = ++x[y.url] || 0;
-        return x;
+    // get unique urls
+    const uniqueUrlsTabs = tabs.reduce((uniqueUrls, item) => {
+        uniqueUrls[item.url] = ++uniqueUrls[item.url] || 0;
+        return uniqueUrls;
     }, {});
 
-    const duplicatedURLs = tabsArray.filter(y => openTabs[y.url]);
-    const tabsToDelete = []
-    duplicatedURLs.forEach( el => tabsToDelete.push(el));
+    // filtered array 
+    const duplicatedURLs = tabsUnreduced.filter(item => uniqueUrlsTabs[item.url]);
+  
+    // tabs to destroy
+    let tabsToDelete = [];
 
-    tabsToDelete.filter((item, index) => tabsToDelete.indexOf(item.url) !== index);
-   
-    let urls = {};
-    let duplicates = [];
-
-    tabsToDelete.forEach((item)=> {
-    if (urls[item.url]) {
-        duplicates.push(item)
+    duplicatedURLs.forEach((item)=> {
+    if (tabsToDelete[item.url]) {
+        tabsToDelete.push(item)
     } else {
-        urls[item.url] = true;
+        tabsToDelete[item.url] = true;
     }
     });
-    duplicates.forEach(item => browser.tabs.remove(item.id));
+    tabsToDelete.forEach(item => browser.tabs.remove(item.id));
 }
   
   let backgroundPage = browser.extension.getBackgroundPage();

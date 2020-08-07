@@ -6,9 +6,7 @@
     "homepage_url": "https://github.com/dharmadeveloper108/firefox-extensions/tree/master/duplicated-tabs-destroyer",
 
     "permissions": [
-      "find",
-      "tabs",
-      "activeTab"
+      "tabs"
     ],
     
   "browser_action": {
