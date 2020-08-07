@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Duplicated Tabs Destroyer",
-    "version": "1.0",
+    "version": "1.5",
     "description": "Get rid of any duplicated tabs you have open in your browser.",
     "homepage_url": "https://github.com/dharmadeveloper108/firefox-extensions/tree/master/duplicated-tabs-destroyer",
 
