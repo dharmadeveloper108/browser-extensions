@@ -14,24 +14,24 @@ async function destroy(query) {
     const duplicatedURLs = tabsUnreduced.filter(item => uniqueUrlsTabs[item.url]);
   
     // tabs to destroy
-    let tabsToDelete = [];
+    let tabsToClose = [];
 
     duplicatedURLs.forEach((item)=> {
-    if (tabsToDelete[item.url]) {
-        tabsToDelete.push(item)
+    if (tabsToClose[item.url]) {
+        tabsToClose.push(item)
     } else {
-        tabsToDelete[item.url] = true;
+        tabsToClose[item.url] = true;
     }
     });
-    tabsToDelete.forEach(item => browser.tabs.remove(item.id));
+    tabsToClose.forEach(item => browser.tabs.remove(item.id));
 }
   
   let backgroundPage = browser.extension.getBackgroundPage();
-  let button = document.getElementById("kaboom");
+  let button = document.getElementById("btn");
 
   button.addEventListener("click", function(e) {
     e.preventDefault();  
     destroy();
     setTimeout(Init(), 15);
-    document.getElementById("btn").style.zIndex = -1;
+    button.style.zIndex = -1;
   });
